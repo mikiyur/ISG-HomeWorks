@@ -1,12 +1,34 @@
 header{
-    background-color: #cdf;
-    color: #123;  
+    background-color: aqua;
+    color: darkblue;
+    text-align: center;
 }
 footer{
     background-color: burlywood;
-    
+    text-align: center;
 }
 
 p{
     font-size: large;
+    text-align: center;
+    color: crimson;
+}
+
+section{
+    margin: 200px;
+    text-align: center;
+    background-color: azure;
+    height: 200px;
+}
+
+.card{
+    background-color: darkkhaki;
+    margin: 10px auto;
+    text-align: center;
+    width: 600px;
+    height: 50px;
+}
+footer{
+    font-size: x-large;
+    color: navy;
 }
