@@ -19,7 +19,7 @@ function TodoItem({todo, index}) {
     return (
         <li style={styles.li}>
             <span>
-                <input type="checkbox" style={styles.input} onChange={console.log(todo.id)}/>
+                <input type="checkbox" style={styles.input} onChange={()=>console.log(todo.id)}/>
                 <strong>{index+1+' '}</strong>
                 &nbsp;
                 {todo.title}

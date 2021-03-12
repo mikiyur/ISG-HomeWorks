@@ -1,5 +1,5 @@
 import React from "react"
-import TodoItem from "./item";
+import TodoItem from "./TodoItem";
 
 const style = {
     listStyle: 'none',
