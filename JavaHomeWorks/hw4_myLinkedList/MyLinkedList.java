@@ -5,14 +5,14 @@ public class MyLinkedList {
     private Node last;
     private int size;
 
-    public void add(String s) {
-        if (s == null) return;
+    public void add(String value){
+        if (value == null) return;
         if (first == null) {
-            first = new Node(s);
+            first = new Node(value);
             last = first;
             size++;
         } else {
-            Node newNode = new Node(s);
+            Node newNode = new Node(value);
             last.next = newNode;
             newNode.previous = last;
             last = newNode;
@@ -20,14 +20,14 @@ public class MyLinkedList {
         }
     }
 
-    public void add(int index, String s) {
-        if (s == null) throw new NullPointerException("The list doesn't accept null value");
+    public void add(int index, String value){
+        if (value == null) throw new NullPointerException("The list doesn't accept null value");
         if (index < 0 || index > size) throw new IndexOutOfBoundsException("index " + index);
         if (index == 0 || index == size) {
-            add(s);
+            add(value);
             return;
         }
-        Node newNode = new Node(s);
+        Node newNode = new Node(value);
         Node current = getNode(index);
         newNode.previous = current;
         newNode.next = current.next;
@@ -36,11 +36,11 @@ public class MyLinkedList {
         size++;
     }
 
-    public boolean contains(String s) {
-        if (s == null) return false;
+    public boolean contains(String value){
+        if (value == null) return false;
         Node current = first;
         while (current != null) {
-            if (current.value.equals(s)) return true;
+            if (current.value.equals(value)) return true;
             current = current.next;
         }
         return false;
@@ -60,10 +60,10 @@ public class MyLinkedList {
         return current.value;
     }
 
-    public boolean remove(String s) {
-        if (contains(s)){
+    public boolean remove(String value){
+        if (contains(value)){
             Node current = first;
-            while (!current.value.equals(s)){
+            while (!current.value.equals(value)){
                 current = current.next;
             }
             remove(current);
