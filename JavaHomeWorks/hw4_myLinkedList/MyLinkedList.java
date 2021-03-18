@@ -28,7 +28,7 @@ public class MyLinkedList {
             return;
         }
         Node newNode = new Node(value);
-        Node current = getNode(index);
+        Node current = getNode(index-1);
         newNode.previous = current;
         newNode.next = current.next;
         current.next = newNode;
@@ -57,6 +57,7 @@ public class MyLinkedList {
     public String remove(int index) {
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException("index " + index);
         Node current = getNode(index);
+        remove(current);
         return current.value;
     }
 
@@ -97,15 +98,18 @@ public class MyLinkedList {
         if (node == first) {
             first = node.next;
             first.previous = null;
+            size--;
             return;
         }
         if (node == last) {
             last = node.previous;
             last.next = null;
+            size--;
             return;
         }
         node.previous.next = node.next;
         node.next.previous = node.previous;
+        size--;
     }
 
     public int size() {
