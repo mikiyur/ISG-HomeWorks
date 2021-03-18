@@ -6,7 +6,7 @@ public class MyLinkedList {
     private int size;
 
     public void add(String value){
-        if (value == null) return;
+        if (value == null) throw new NullPointerException("The list doesn't accept null value");
         if (first == null) {
             first = new Node(value);
             last = first;
