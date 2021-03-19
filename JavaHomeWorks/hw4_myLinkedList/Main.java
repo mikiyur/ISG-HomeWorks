@@ -1,13 +1,25 @@
 package hw4_myLinkedList;
 
+import java.util.LinkedList;
+import java.util.stream.Stream;
+
 public class Main {
     public static void main(String[] args) {
-        MyLinkedList myList = new MyLinkedList();
+        MyLinkedList<String> myList = new MyLinkedList<>();
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("1");
+        linkedList.add("2");
+        linkedList.add("3");
+        linkedList.add("4");
+
         myList.add("01");
         myList.add("02");
         myList.add("04");
         myList.add("05");
         myList.print();
+        Stream <MyLinkedList<String>> stream = Stream.of(myList);
+        Stream stream2 = Stream.of(linkedList);
+        stream.peek(System.out::println).toArray();
 
         System.out.println("has 03: " + myList.contains("03"));
         System.out.println("has 04:" + myList.contains("04"));

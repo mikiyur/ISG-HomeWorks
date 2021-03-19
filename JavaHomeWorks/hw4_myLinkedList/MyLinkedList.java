@@ -1,18 +1,18 @@
 package hw4_myLinkedList;
 
-public class MyLinkedList {
-    private Node first;
-    private Node last;
+public class MyLinkedList <E>{
+    private Node<E> first;
+    private Node<E> last;
     private int size;
 
-    public void add(String value){
+    public void add(E value){
         if (value == null) throw new NullPointerException("The list doesn't accept null value");
         if (first == null) {
-            first = new Node(value);
+            first = new Node<>(value);
             last = first;
             size++;
         } else {
-            Node newNode = new Node(value);
+            Node<E> newNode = new Node<>(value);
             last.next = newNode;
             newNode.previous = last;
             last = newNode;
@@ -20,15 +20,15 @@ public class MyLinkedList {
         }
     }
 
-    public void add(int index, String value){
+    public void add(int index, E value){
         if (value == null) throw new NullPointerException("The list doesn't accept null value");
         if (index < 0 || index > size) throw new IndexOutOfBoundsException("index " + index);
         if (index == 0 || index == size) {
             add(value);
             return;
         }
-        Node newNode = new Node(value);
-        Node current = getNode(index-1);
+        Node<E> newNode = new Node<>(value);
+        Node<E> current = getNode(index-1);
         newNode.previous = current;
         newNode.next = current.next;
         current.next = newNode;
@@ -36,9 +36,9 @@ public class MyLinkedList {
         size++;
     }
 
-    public boolean contains(String value){
+    public boolean contains(E value){
         if (value == null) return false;
-        Node current = first;
+        Node<E> current = first;
         while (current != null) {
             if (current.value.equals(value)) return true;
             current = current.next;
@@ -46,24 +46,24 @@ public class MyLinkedList {
         return false;
     }
 
-    public String get(int index) {
+    public E get(int index) {
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException("index " + index);
         if (index == 0) return first.value;
         if (index == size-1) return last.value;
-        Node current = getNode(index);
+        Node<E> current = getNode(index);
         return current.value;
     }
 
-    public String remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException("index " + index);
-        Node current = getNode(index);
+        Node<E> current = getNode(index);
         remove(current);
         return current.value;
     }
 
-    public boolean remove(String value){
+    public boolean remove(E value){
         if (contains(value)){
-            Node current = first;
+            Node<E> current = first;
             while (!current.value.equals(value)){
                 current = current.next;
             }
@@ -86,8 +86,8 @@ public class MyLinkedList {
         System.out.println(sBuilder.toString());
     }
 
-    private Node getNode(int index){
-        Node current = first;
+    private Node<E> getNode(int index){
+        Node<E> current = first;
         for (int i = 1; i <= index; i++) {
             current = current.next;
         }
@@ -116,12 +116,12 @@ public class MyLinkedList {
         return size;
     }
 
-    private static class Node {
-        String value;
-        Node previous;
-        Node next;
+    private static class Node <E>{
+        E value;
+        Node<E> previous;
+        Node<E> next;
 
-        Node(String value) {
+        Node(E value) {
             this.value = value;
         }
     }
