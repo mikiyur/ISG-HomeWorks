@@ -1,4 +1,4 @@
-package hw6_saveContactsToFile;
+package hw6_contactBook;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -9,5 +9,5 @@ public class User implements Serializable {
     private long id;
     private String login;
     private String password;
-    private final Set <Person> contactBook = new HashSet<Person>();
+    private final Set <Person> contactBook = new HashSet<>();
 }
