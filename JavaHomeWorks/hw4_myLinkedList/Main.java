@@ -1,6 +1,9 @@
 package hw4_myLinkedList;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -19,7 +22,9 @@ public class Main {
         myList.print();
         Stream <MyLinkedList<String>> stream = Stream.of(myList);
         Stream stream2 = Stream.of(linkedList);
-        stream.peek(System.out::println).toArray();
+        Stream stream3 = linkedList.stream();
+        stream.peek(System.out::println).collect(Collectors.toSet());
+
 
         System.out.println("has 03: " + myList.contains("03"));
         System.out.println("has 04:" + myList.contains("04"));
