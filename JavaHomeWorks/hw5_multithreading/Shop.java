@@ -1,7 +1,10 @@
 package hw5_multithreading;
 
 public class Shop {
+
     private int products;
+
+
     public static void main(String[] args) {
         Shop shop = new Shop();
         Thread customer = new Thread(new Customer(shop));
