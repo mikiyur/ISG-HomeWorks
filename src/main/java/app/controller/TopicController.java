@@ -2,9 +2,10 @@ package app.controller;
 
 import app.logger.Logger;
 import app.model.Topic;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import app.service.TopicService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,10 +14,11 @@ import java.util.List;
 public class TopicController {
 
     @Autowired
-    TopicService topicService;
+    @Qualifier("new")
+    private TopicService topicService;
 
     @Autowired
-    Logger logger;
+    private Logger logger;
 
     @GetMapping ("")
     public List <Topic> getAllTopics (){
